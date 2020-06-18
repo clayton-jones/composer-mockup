@@ -1,24 +1,38 @@
 import React from 'react';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 export default function Nav(props) {
+  let menuItems = [
+    {display: 'News', url: '/'},
+    {display: 'Performances', url: '/performances'},
+    {display: 'Free Piano Accompaniment Tracks', url: '/tracks'},
+    {display: 'Report Your Performance Here', url: '/your-performance'},
+    {display: 'Catalog', url: '/catalog'},
+    {display: 'CDs', url: '/cds'},
+    {display: 'Press Kit', url: '/press'},
+    {display: 'Bio', url: '/bio'},
+    {display: 'Awards', url: '/awards'},
+    {display: 'Reviews', url: '/reviews'},
+    {display: 'Contact', url: '/contact'},
+    {display: 'Sign Up for Newsletter', url: '/newsletter'}
+  ];
+
+  let links = [];
+
+  menuItems.forEach((menuItems, i) => {
+    links.push(<Link key={i} to={`${menuItems.url}`}><li key={i} className={props.menuVisible ? 'fade' : null} onClick={onClick}>{menuItems.display}</li></Link>);
+  })
+
+  function onClick() {
+    props.updateState('menu', !props.menuVisible);
+  }
+
   return (
-    <div className='nav-container'>
+    <div id='nav-container' className={props.menuVisible ? 'show' : 'hide'}>
       <nav>
         <ul>
-          <li>News</li>
-          <li>Performances</li>
-          <li>Free Piano Accompaniment Tracks</li>
-          <li>Report Your Performance Here</li>
-          <li>Catalog</li>
-          <li>CDs</li>
-          <li>Press Kit</li>
-          <li>Bio</li>
-          <li>Awards</li>
-          <li>Reviews</li>
-          <li>Contact</li>
-          <li>Sign Up for Newsletter</li>
+          {links}
         </ul>
       </nav>
     </div>
