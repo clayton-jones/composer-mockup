@@ -1,9 +1,10 @@
 @import 'util';
+@import 'colors';
 
 main {
   flex: 1;
   position: relative;
-  background-color: #eee;
+  background-color: $white;
   @include flex-center;
 
   h1 {

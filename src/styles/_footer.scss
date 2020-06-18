@@ -1,8 +1,9 @@
 @import 'util';
+@import 'colors';
 
 footer {
   height: 10vh;
-  background-color: black;
-  color: white;
+  background-color: $black;
+  color: $white;
   @include flex-center;
 }
