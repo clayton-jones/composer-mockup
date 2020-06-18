@@ -1,0 +1,13 @@
+@import 'util';
+
+main {
+  flex: 1;
+  position: relative;
+  background-color: #eee;
+  @include flex-center;
+
+  h1 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}

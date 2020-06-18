@@ -1,0 +1,8 @@
+@import 'util';
+
+footer {
+  height: 10vh;
+  background-color: black;
+  color: white;
+  @include flex-center;
+}
